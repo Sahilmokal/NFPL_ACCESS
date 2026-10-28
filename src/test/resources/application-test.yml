@@ -1,0 +1,4 @@
+# Tests use their own schema so they never touch your demo data. Same MySQL as docker-compose.
+spring:
+  datasource:
+    url: ${DB_URL:jdbc:mysql://localhost:3306/nfpl_test?createDatabaseIfNotExist=true&connectionTimeZone=UTC&forceConnectionTimeZoneToSession=true&allowPublicKeyRetrieval=true&useSSL=false}

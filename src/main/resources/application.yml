@@ -1,0 +1,23 @@
+spring:
+  datasource:
+    url: ${DB_URL:jdbc:mysql://localhost:3306/nfpl?createDatabaseIfNotExist=true&connectionTimeZone=UTC&forceConnectionTimeZoneToSession=true&allowPublicKeyRetrieval=true&useSSL=false}
+    username: ${DB_USER:root}
+    password: ${DB_PASSWORD:root}
+  jackson:
+    serialization:
+      write-dates-as-timestamps: false
+
+server:
+  port: 8080
+  servlet:
+    session:
+      timeout: 30m
+      cookie:
+        http-only: true
+        same-site: strict
+        secure: ${SESSION_COOKIE_SECURE:false}
+
+app:
+  # none | sample | scale. Normally passed on the command line: --app.seed=sample
+  seed: ${APP_SEED:none}
+  demo-password: ${DEMO_PASSWORD:nfpl-demo}
